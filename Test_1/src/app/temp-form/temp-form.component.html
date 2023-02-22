@@ -1,0 +1,72 @@
+<hr />
+<div class="hm container-fluid">
+    <form #userForm="ngForm"  (ngSubmit)="onSubmit()">
+        <h3>Temp component!</h3>
+        
+    <br>
+        <input type="text" name="f1" ngModel #fname="ngModel" required (keyup)="fclick(fname.value)" placeholder="enter first name" class="brdr" [(ngModel)]="userModel.fname" ><br>
+        <small class="er" *ngIf="fname.invalid && fname.touched">*first name is required</small><br>
+
+       <input type="text" required #mname="ngModel" name="s" ngModel (keyup)="sclick(mname.value)" placeholder="enter middle name"class="brdr" [(ngModel)]="userModel.sname"><br>
+       <small class="er" *ngIf="fname.invalid && fname.touched">*middle name is required</small><br>
+
+        <input type="text" required #lname="ngModel" name="l" ngModel (keyup)="lclick(lname.value)" placeholder="enter last name"class="brdr" [(ngModel)]="userModel.tname"><br>
+        <small class="er" *ngIf="fname.invalid && fname.touched">*last name is required</small><br>
+
+        <textarea value="{{final}}"name="txta" id="" cols="20" rows="5" disabled class="brdr" [(ngModel)]="userModel.fname+userModel.sname+userModel.tname"></textarea><br><br>
+        <input type="number" placeholder="enter age"class="brdr" name="age" [(ngModel)]="userModel.age"><br><br>
+    
+        <div>
+        <!-- gender -->
+        <div class="form-check" style="margin-top: 20px;margin-left: 5px;">
+            <label id="l1" class="lbl">select Gender</label>
+            <input  type="radio" name="gender" [(ngModel)]="userModel.gender"  value="female" > Female
+            <input  type="radio" name="gender" [(ngModel)]="userModel.gender"  value="male" >Male
+          </div>
+        
+          <!-- hobies -->
+          
+          <div class="form-check" style="margin-top: 20px;">
+            <label id="hobies" class="lbl" style="margin-right: 5px;">select Hobies</label>
+            <div ngModelGroup="hobby">
+            <input type="checkbox" value="reading" id="cb1" name="reading" [(ngModel)]="userModel.hobies.reading">Reading
+            <input type="checkbox" value="sports" id="cb2" name="sports" [(ngModel)]="userModel.hobies.sports">Sports
+            <input type="checkbox" value="riding" id="cb3" name="riding" [(ngModel)]="userModel.hobies.riding">Riding
+            <input type="checkbox" value="Gaming" id="cb4" name="gaming" [(ngModel)]="userModel.hobies.gaming">Gaming
+            <input type="checkbox" value="Music" id="cb5" name="music" [(ngModel)]="userModel.hobies.music">Music
+          </div>
+        </div>
+
+          <!-- company -->
+          <div style="margin-top: 20px;">
+            <select name="s1" [(ngModel)]="userModel.company" ngModel  class="form-select" aria-label="Default select example"  class="lbl">
+              <option selected>Select company</option>
+              <option *ngFor="let com of company" [value]="com" name="com"> {{com}} </option>
+            </select>
+          </div>
+
+          <!-- <div style="margin-top: 20px;">
+          <select name="s1" [(ngModel)]="userModel.company" class="form-select" aria-label="Default select example"  class="lbl">
+            <option selected="true">Select company</option>
+            <option *ngFor="let com of company"> {{com}} </option>
+          </select>
+        </div> -->
+
+        
+
+        <!-- button -->
+        <div>
+                <button class="btn btn-primary" (click)="onback()">Back</button><samp></samp>
+                <button class="btn btn-primary" (click)="onSubmit()" type="submit" [disabled]="userForm.invalid">Submit</button>
+                <button class="btn btn-primary"type="reset">Clear</button>
+
+        </div>
+
+
+        </div>
+          
+        
+            
+          
+    </form>
+</div>

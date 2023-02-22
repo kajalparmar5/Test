@@ -1,0 +1,58 @@
+
+
+      <hr />
+<div class="hm container-fluid">
+    <form  [formGroup]="reactiveform"  (ngSubmit)="onSubmit()">
+        <h3>React component!</h3>
+        
+    <br>
+        <input type="text" name="f1"   required  placeholder="enter first name" class="brdr" formControlName="fname" ><br>
+        <!-- <small class="er">*first name is required</small><br> -->
+
+      <br> <input type="text" required  name="s"   placeholder="enter middle name"class="brdr" formControlName="mname" ><br>
+       <!-- <small class="er" *ngIf="fname.invalid && fname.touched">*middle name is required</small><br> -->
+
+       <br> <input type="text" required  name="l"   placeholder="enter last name"class="brdr" formControlName="lname" ><br>
+        <!-- <small class="er" *ngIf="fname.invalid && fname.touched">*last name is required</small><br> -->
+
+        <br><textarea name="txta" id="" cols="20" rows="5" readonly class="brdr"  formControlName="txta"></textarea><br><br>
+        <input type="number" placeholder="enter age"class="brdr" name="age" formControlName="age" ><br><br>
+    
+        <div>
+        <!-- gender -->
+        <div class="form-check" style="margin-top: 20px;margin-left: 5px;">
+            <label id="l1" class="lbl">select Gender</label>
+            <input  type="radio" name="gender"   value="female" formControlName="gender" /> Female
+            <input  type="radio" name="gender"   value="male" formControlName="gender" >Male
+          </div>
+        
+          <!-- hobies -->
+          <label id="hobies" class="lbl" style="margin-right: 5px;" formGroupName="hobby">select Hobies</label>
+          
+          <div class="form-check" style="margin-top: 20px;">
+            <div formGroupName="hobby">
+            <input type="checkbox" value="reading" id="cb1" name="reading" formControlName="reading" >Reading
+            <input type="checkbox" value="sports" id="cb2" name="sports" formControlName="sports" >Sports
+            <input type="checkbox" value="riding" id="cb3" name="riding" formControlName="riding">Riding
+            <input type="checkbox" value="Gaming" id="cb4" name="gaming" formControlName="gaming">Gaming
+            <input type="checkbox" value="Music" id="cb5" name="music" formControlName="music" >Music
+          </div>
+        </div>
+
+          <!-- company -->
+          <div style="margin-top: 20px;">
+          <select name="s1"  class="form-select" aria-label="Default select example"  class="lbl" formControlName="company">
+            <option selected>Select company</option>
+            <option *ngFor="let com of company" name="com" [value]="com"> {{com}} </option>
+          </select>
+        </div>
+
+        <!-- button -->
+        <div >
+                
+                <button class="btn btn-primary" (click)="onSubmit()" type="submit">Submit</button>
+                <button class="btn btn-primary"type="reset" (click)="clearForm()">Clear</button>
+        </div>
+        </div>
+    </form>
+</div>

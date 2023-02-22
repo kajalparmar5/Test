@@ -1,0 +1,26 @@
+.brdr{
+    border-color: cadetblue;
+    border-radius: 5%;
+}
+.brdr.radio{
+    padding-left: 100px;;
+}
+
+.lbl{
+    font-size: 16px;
+    padding-right: 5px;
+    padding-left: 10px;
+    border-style: double;
+    border-color: cadetblue;
+    border-radius: 5%;
+    border-width: 3px;
+    background-color:rgb(235, 242, 243) ;
+}
+.btn{
+    margin-top: 20px;
+    margin-right: 10px;
+    margin-left: 10px;
+}
+.er{
+    color: red;
+}
